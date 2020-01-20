@@ -38,7 +38,6 @@ public class CustomerController {
 	@PostAuthorize("returnObject.name == authentication.name")
 	@GetMapping("/security/{id}")
 	public Customer findBySecId(@PathVariable final String id, Authentication authentication) {
-		var authName = authentication.getName();
 		return customerService.findById(id);
 	}
 	
