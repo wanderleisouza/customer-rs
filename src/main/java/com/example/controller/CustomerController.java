@@ -3,13 +3,16 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Customer;
@@ -31,10 +34,22 @@ public class CustomerController {
 		return customerService.findById(id);
 	}
 	
-	@GetMapping("/search")
-	public Customer findByDocument (
-				@RequestParam String document) {
-		return customerService.findByDocument(document);
+	@PreAuthorize("hasRole('USER') and #oauth2.isUser()")
+	@PostAuthorize("returnObject.name == authentication.name")
+	@GetMapping("/security/{id}")
+	public Customer findBySecId(@PathVariable final String id, Authentication authentication) {
+		var authName = authentication.getName();
+		return customerService.findById(id);
+	}
+	
+	@PreAuthorize("(hasRole('ADMIN') or hasRole('CUSTOMER_HAPPINESS')) and #oauth2.isUser() and #oauth2.hasScope('READ')")
+	@GetMapping("/security/admin/{id}")
+	public Customer findBySecAdminId(@PathVariable final String id, Authentication authentication) {
+		
+		var userName = authentication.getName();
+		var clientId = ((OAuth2Authentication)authentication).getOAuth2Request().getClientId();
+		
+		return customerService.findById(id);
 	}
 	
 	@DeleteMapping("/{id}")

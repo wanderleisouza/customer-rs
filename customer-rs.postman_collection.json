@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "d3285d62-3b39-4901-a0df-0359ba68d43f",
+		"name": "customer-rs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/GET Jane (no token)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET Jane (+Jane Token)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "cf7ee96d-b139-4636-839f-8e3ab168ddf8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "bearer cc9de63a-c39e-41df-9d39-53926ef4c4e6"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/security/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"security",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET John (+Jane Token)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "cf7ee96d-b139-4636-839f-8e3ab168ddf8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET Jane Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "app-mobile123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "app-mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9191/oauth/token?grant_type=password&username=jane-doe&password=jane-doe123&scope=READ WRITE",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "jane-doe"
+						},
+						{
+							"key": "password",
+							"value": "jane-doe123"
+						},
+						{
+							"key": "scope",
+							"value": "READ WRITE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET Judite Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "app-mobile123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "app-mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9191/oauth/token?grant_type=password&username=judite&password=judite123&scope=READ WRITE",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "judite"
+						},
+						{
+							"key": "password",
+							"value": "judite123"
+						},
+						{
+							"key": "scope",
+							"value": "READ WRITE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET check_token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "app-mobile123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "app-mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9191/oauth/check_token?token=0c65698b-0791-46ba-8eee-84ed79fd3732",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"oauth",
+						"check_token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "0c65698b-0791-46ba-8eee-84ed79fd3732"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

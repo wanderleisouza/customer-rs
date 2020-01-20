@@ -26,11 +26,6 @@ public class CustomerService {
 		return customerRepository.findById(id).orElseThrow(CustomerNotFoundException::new);
 	}
 
-	public Customer findByDocument(String document) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public void deleteById(String id) {
 		logger.info("deleting customer id {}", id);
 		customerRepository.deleteById(id);

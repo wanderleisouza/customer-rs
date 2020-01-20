@@ -1,0 +1,12 @@
+= Customer (Resource Service)
+:toc:
+
+== Enabling Security Context 
+
+1. Enable Resource Server  (`@EnableResourceServer`) in Spring boot loader file `CustomerApplication.java`
+2. Uncomment dependencies `spring spring-cloud-starter-security` and `spring-cloud-starter-oauth2` in `pom.xml` file 
+3. Define `token-info-uri` and microservice `client_id/secret` in `application.yml` file
+
+=== Enabling Global Method Security
+
+1. Enable security by method `@EnableGlobalMethodSecurity(prePostEnabled=true)` in Spring boot loader file `CustomerApplication.java`
