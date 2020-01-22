@@ -25,35 +25,18 @@
 			"response": []
 		},
 		{
-			"name": "/GET Jane (+Jane Token)",
+			"name": "/GET who Am I?",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "cf7ee96d-b139-4636-839f-8e3ab168ddf8",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "bearer cc9de63a-c39e-41df-9d39-53926ef4c4e6"
-					}
-				],
+				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/security/1",
+					"raw": "http://localhost:8080/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"security",
 						"1"
 					]
 				}
@@ -61,14 +44,14 @@
 			"response": []
 		},
 		{
-			"name": "/GET John (+Jane Token)",
+			"name": "/GET Jane (+Jane Token)",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "cf7ee96d-b139-4636-839f-8e3ab168ddf8",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicGF5bWVudCIsImN1c3RvbWVyIl0sInVzZXJfbmFtZSI6ImphbmUtZG9lIiwic2NvcGUiOlsiUkVBRCIsIldSSVRFIl0sImV4cCI6MTU3OTY1Mzk4NiwiYXV0aG9yaXRpZXMiOlsiY2FuX2NyZWF0ZSIsImNhbl9yZWFkIiwiUk9MRV9VU0VSIiwiY2FuX3VwZGF0ZSJdLCJqdGkiOiJkZjI0OTBhYS0yZTIwLTRhMjYtOWYwNC1jNDU4NTlkNjAwOTgiLCJlbWFpbCI6ImphbmVAbWFpbC5jb20iLCJjbGllbnRfaWQiOiJhcHAtbW9iaWxlIn0.T713boNd5-sMSDncWDoLq_KRNlPjWxKR51lMls5gr8NgEKSX5JYew6qDqpSZzMwuDuaBHp154NfA-Pbeoq00A7DErtTjoLdqcst0RkL_q5-q5SHH1hcUiIW-UlGFaT1K5nqdMn0zPEswquPxYIf291QHvsjgv-rgyBsq-fZaWfQ7KdKbDR-DUAMNxJyzcYb1MgZ0DaHVwNlo6FiAPrtKQa3H_W2iTOq3PLcFcT3ZyV9JGni7xeqW3hps_DVuq42dNagJ4GghURXZ7zUcKugVg_WBtcsnw3nqJqtmo6F8BhTrQzMIriXcrUSXJCZe1vQxwmbfuW4VVOUxgZOXB76UTg",
 							"type": "string"
 						}
 					]
@@ -76,13 +59,43 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/2",
+					"raw": "http://localhost:8080/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET security - John (+Jane Token)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicGF5bWVudCIsImN1c3RvbWVyIl0sInVzZXJfbmFtZSI6ImphbmUtZG9lIiwic2NvcGUiOlsiUkVBRCIsIldSSVRFIl0sImV4cCI6MTU3OTY1Mzk4NiwiYXV0aG9yaXRpZXMiOlsiY2FuX2NyZWF0ZSIsImNhbl9yZWFkIiwiUk9MRV9VU0VSIiwiY2FuX3VwZGF0ZSJdLCJqdGkiOiJkZjI0OTBhYS0yZTIwLTRhMjYtOWYwNC1jNDU4NTlkNjAwOTgiLCJlbWFpbCI6ImphbmVAbWFpbC5jb20iLCJjbGllbnRfaWQiOiJhcHAtbW9iaWxlIn0.T713boNd5-sMSDncWDoLq_KRNlPjWxKR51lMls5gr8NgEKSX5JYew6qDqpSZzMwuDuaBHp154NfA-Pbeoq00A7DErtTjoLdqcst0RkL_q5-q5SHH1hcUiIW-UlGFaT1K5nqdMn0zPEswquPxYIf291QHvsjgv-rgyBsq-fZaWfQ7KdKbDR-DUAMNxJyzcYb1MgZ0DaHVwNlo6FiAPrtKQa3H_W2iTOq3PLcFcT3ZyV9JGni7xeqW3hps_DVuq42dNagJ4GghURXZ7zUcKugVg_WBtcsnw3nqJqtmo6F8BhTrQzMIriXcrUSXJCZe1vQxwmbfuW4VVOUxgZOXB76UTg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/security/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"security",
 						"2"
 					]
 				}
@@ -131,6 +144,58 @@
 						{
 							"key": "password",
 							"value": "jane-doe123"
+						},
+						{
+							"key": "scope",
+							"value": "READ WRITE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/GET John Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "app-mobile123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "app-mobile",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9191/oauth/token?grant_type=password&username=john-doe&password=john-doe123&scope=READ WRITE",
+					"host": [
+						"localhost"
+					],
+					"port": "9191",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "john-doe"
+						},
+						{
+							"key": "password",
+							"value": "john-doe123"
 						},
 						{
 							"key": "scope",
@@ -214,7 +279,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:9191/oauth/check_token?token=0c65698b-0791-46ba-8eee-84ed79fd3732",
+					"raw": "localhost:9191/oauth/check_token?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicGF5bWVudCIsImN1c3RvbWVyIl0sInVzZXJfbmFtZSI6Imp1ZGl0ZSIsInNjb3BlIjpbIlJFQUQiLCJXUklURSJdLCJleHAiOjE1Nzk2NTM5NzksImF1dGhvcml0aWVzIjpbImNhbl9yZWFkIiwiUk9MRV9DVVNUT01FUl9IQVBQSU5FU1MiLCJjYW5fdXBkYXRlIl0sImp0aSI6ImI1NGJlMzdlLWRkMjYtNDg1My1hYTY3LTJkM2M4YWRhZmViYiIsImVtYWlsIjoianVkaXRlQG1haWwuY29tIiwiY2xpZW50X2lkIjoiYXBwLW1vYmlsZSJ9.0SoA--liZfgYAvWwDqtUiHU03qT3BbHPNifPp4kg997YIv9hQji44svnO_Qbs8fjrx8X0vajg83cw2S1q-wh3qXXdTRRhpWUyN7snEtjEEBhiz2z1wkCwIu847btT_szeFKCvqTlip-CfckRKSXqp_QkDRUn_0RNth_9faIQUF_PJL4YWOn3kd2yqNGE67TvJLk-oX6Csf-VR1ysQ_dGczn_Hj6nuvWyj590JqwUSGt7spLchj88VpjlOxRr60APu9UqOW0PiZKtIKsu3HUuR3utAwcg1YQEEZRKcIyDsmCEyaDDUIhLtaQCg4HJT4VHrH6X4kWiD6tKAGPIWMtNFQ",
 					"host": [
 						"localhost"
 					],
@@ -226,7 +291,7 @@
 					"query": [
 						{
 							"key": "token",
-							"value": "0c65698b-0791-46ba-8eee-84ed79fd3732"
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicGF5bWVudCIsImN1c3RvbWVyIl0sInVzZXJfbmFtZSI6Imp1ZGl0ZSIsInNjb3BlIjpbIlJFQUQiLCJXUklURSJdLCJleHAiOjE1Nzk2NTM5NzksImF1dGhvcml0aWVzIjpbImNhbl9yZWFkIiwiUk9MRV9DVVNUT01FUl9IQVBQSU5FU1MiLCJjYW5fdXBkYXRlIl0sImp0aSI6ImI1NGJlMzdlLWRkMjYtNDg1My1hYTY3LTJkM2M4YWRhZmViYiIsImVtYWlsIjoianVkaXRlQG1haWwuY29tIiwiY2xpZW50X2lkIjoiYXBwLW1vYmlsZSJ9.0SoA--liZfgYAvWwDqtUiHU03qT3BbHPNifPp4kg997YIv9hQji44svnO_Qbs8fjrx8X0vajg83cw2S1q-wh3qXXdTRRhpWUyN7snEtjEEBhiz2z1wkCwIu847btT_szeFKCvqTlip-CfckRKSXqp_QkDRUn_0RNth_9faIQUF_PJL4YWOn3kd2yqNGE67TvJLk-oX6Csf-VR1ysQ_dGczn_Hj6nuvWyj590JqwUSGt7spLchj88VpjlOxRr60APu9UqOW0PiZKtIKsu3HUuR3utAwcg1YQEEZRKcIyDsmCEyaDDUIhLtaQCg4HJT4VHrH6X4kWiD6tKAGPIWMtNFQ"
 						}
 					]
 				}
