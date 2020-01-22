@@ -11,3 +11,7 @@
 
 1. Enable security by method `@EnableGlobalMethodSecurity(prePostEnabled=true)` in Spring boot loader file `CustomerApplication.java`
 2. Add spring-security constraints into `Controller` methods (e.g. `hasRole('ADMIN')`)
+
+== Dry Run
+
+Import `customer-rs.postman_collection.json` into Postman app and have fun!
