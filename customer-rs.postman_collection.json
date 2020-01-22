@@ -27,17 +27,27 @@
 		{
 			"name": "/GET who Am I?",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicGF5bWVudCIsImN1c3RvbWVyIl0sInVzZXJfbmFtZSI6ImpvaG4tZG9lIiwic2NvcGUiOlsiUkVBRCIsIldSSVRFIl0sImV4cCI6MTU3OTY1NTA5MSwiYXV0aG9yaXRpZXMiOlsiY2FuX2NyZWF0ZSIsImNhbl9yZWFkIiwiUk9MRV9VU0VSIiwiY2FuX3VwZGF0ZSJdLCJqdGkiOiIxYzFiMDkxOC04MjhkLTRhNmItOWRhMi0wMTk5NGM0ZGRjYzgiLCJlbWFpbCI6ImpvaG5AbWFpbC5jb20iLCJjbGllbnRfaWQiOiJhcHAtbW9iaWxlIn0.WHZLV1hX4kbN6FC93O-JLCv1jNOYzf98atYdSqWE7Wt8wur46BqsWOuhIk5tJ4fC6O_54QCTzrff6ZFl9WHrfAT5XIVFUjZQFidIWWfB0opgxE1Qd4EzmTftNXm9Jv5dvykeoDaGRfofxrg-WzaiqwJjevaY3oWdOpZGdVlYWjbBGS7kRA_qUvj5eu-uAqIdaqLSrjamgX22Pn15sk8H-uwlfLHRl9j9-4-zbonCCvTGZQgilKJKupe7e5J0jETGL88lg886GofhhxRLK1ht5nTzoY575415WkW820r4AiIKS3-i8O86Lij67h2nTPten6DkHGxzJXMacF_tsLgeqw",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/1",
+					"raw": "http://localhost:8080/whoAmI?",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"1"
+						"whoAmI"
 					]
 				}
 			},
