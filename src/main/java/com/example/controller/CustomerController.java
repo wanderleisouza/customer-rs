@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Customer;
+import com.example.security.CustomPrincipal;
 import com.example.service.CustomerService;
 
 @RestController
@@ -41,12 +42,25 @@ public class CustomerController {
 		return customerService.findById(id);
 	}
 	
-	@PreAuthorize("(hasRole('ADMIN') or hasRole('CUSTOMER_HAPPINESS')) and #oauth2.isUser() and #oauth2.hasScope('READ')")
+	@PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_CUSTOMER_HAPPINESS') and #oauth2.isUser() and #oauth2.hasScope('READ')")
 	@GetMapping("/security/admin/{id}")
 	public Customer findBySecAdminId(@PathVariable final String id, Authentication authentication) {
 		
-		var userName = authentication.getName();
-		var clientId = ((OAuth2Authentication)authentication).getOAuth2Request().getClientId();
+		String username;
+		String email;
+		String clientId;
+		
+		var oauth2Request = ((OAuth2Authentication)authentication).getOAuth2Request();
+
+		clientId = oauth2Request.getClientId();
+		if (authentication.getPrincipal() instanceof CustomPrincipal) { 
+			var principal = (CustomPrincipal)authentication.getPrincipal();
+			username = principal.getUsername(); 
+			email = principal.getEmail();
+		} else {
+			username = authentication.getName();
+			email = "N/A";
+		}
 		
 		return customerService.findById(id);
 	}
